@@ -23,6 +23,9 @@ jobs:
         ACCOUNT_ID: ${{ secrets.ALIYUN_ACCOUNT_ID }}
         ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_ID }}
         ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_SECRET }}
+        FC_ENDPOINT: ${{ secrets.ALIYUN_FC_ENDPOINT }}
+        TIMEOUT: 10
+        RETRIES: 3
       run: |
         cp .fun/template.yml template.yml
         sed -i 's#{{tag}}#${{ github.event.ref }}#' ./template.yml
